@@ -1,0 +1,505 @@
+/* =========================================
+   1. VARIABLES & GLOBAL STYLES
+   ========================================= */
+:root {
+    /* Define primary colors based on the design */
+    --ait-blue: #007bb6; /* Darker Blue for buttons/links */
+    --ait-dark-blue: #1a4270; /* Approximated dark blue from logo/card border */
+    --ait-orange: #ff9900; /* Bright orange for button/icons/separator */
+    --text-color-dark: #333;
+    --text-color-light: #ccc;
+    --background-light: #f4f4f4;
+    --background-dark: #222;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.logo-text {
+    color: black;
+    margin-right: 5px;
+}
+
+/* Styling the dynamic blue swoosh shape */
+.logo-swoosh {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, transparent 50%, var(--ait-dark-blue) 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    transform: rotate(180deg) translate(0px, -5px);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--ait-orange);
+    border-bottom: 2px solid var(--ait-orange);
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero-section {
+    position: relative;
+    height: 400px; 
+    background-color: black; 
+    /* Placeholder for the laptop background image */
+    background-image: url('placeholder-laptop-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    padding: 50px;
+    z-index: 1; 
+}
+
+/* Dark overlay effect */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1;
+}
+
+.more-about-us-btn {
+    background-color: var(--ait-orange);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.more-about-us-btn:hover {
+    background-color: #e68a00;
+}
+
+/* =========================================
+   4. SERVICE CARDS
+   ========================================= */
+.services-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 50px 50px;
+    margin-top: -150px; /* Pull the cards up into the hero section */
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid var(--ait-dark-blue);
+    border-top: 5px solid var(--ait-dark-blue); 
+    width: 30%;
+    min-height: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    /* Flex setup for pushing the button to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 40px 0 0; /* Remove bottom padding to make room for the button */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+    width: 70px;
+    height: 70px;
+    background-color: var(--ait-orange);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    padding: 0; /* Override column padding */
+}
+
+.icon-container i {
+    color: white;
+    font-size: 30px;
+}
+
+.card h3, .card p, .icon-container {
+    padding: 0 25px; /* Apply horizontal padding to internal elements */
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    flex-grow: 1; /* Allows content to push the button down */
+    margin-bottom: 20px;
+}
+
+/* Full-width "LEARN MORE" Button */
+.learn-more-btn {
+    display: block; 
+    width: 100%; 
+    background-color: var(--ait-blue);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.learn-more-btn:hover {
+    background-color: #005691;
+}
+
+
+/* =========================================
+   5. VENDOR LOGO SLIDER
+   ========================================= */
+
+.vendor-logos-section {
+    padding: 20px 0 50px;
+    background-color: white; 
+    overflow: hidden; /* Hides the logos outside the viewport */
+    position: relative;
+}
+
+.separator-line {
+    border: none;
+    height: 5px; 
+    background-color: var(--ait-orange); 
+    margin-bottom: 40px;
+}
+
+/* The track containing all the logos (original set + duplicate set) */
+.logo-track {
+    display: flex;
+    width: 200%; 
+    animation: scroll-logos 25s linear infinite; /* Animation applied here */
+}
+
+.logo-item {
+    width: 12.5%; /* 100% / 8 items in the 200% track */
+    text-align: center;
+    padding: 0 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+.logo-item img {
+    max-height: 50px; 
+    width: auto;
+    opacity: 0.7; 
+    transition: opacity 0.3s;
+}
+
+.logo-item img:hover {
+    opacity: 1;
+}
+
+/* Keyframes for smooth horizontal scrolling */
+@keyframes scroll-logos {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Moves exactly one set of logos left */
+    }
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+.main-footer {
+    background-color: var(--background-dark); 
+    color: var(--text-color-light); 
+    padding: 50px 0 20px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.footer-col {
+    width: 23%;
+    margin-right: 20px;
+}
+
+.footer-col h3 {
+    color: var(--ait-orange);
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Quick Links */
+.links-col ul {
+    list-style: none;
+}
+
+.links-col ul li {
+    margin-bottom: 10px;
+}
+
+.links-col ul li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links-col ul li a:hover {
+    color: white;
+}
+
+/* Contact Info */
+.contact-col p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-col i {
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 2px;
+    color: var(--ait-orange);
+}
+
+.contact-col a {
+    color: var(--text-color-light);
+    text-decoration: none;
+}
+
+.contact-col a:hover {
+    color: white;
+}
+
+/* Social Media */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: var(--text-color-light);
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--ait-orange);
+}
+
+.newsletter-btn {
+    background-color: var(--ait-orange);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.newsletter-btn:hover {
+    background-color: #e68a00;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #666;
+}
+/* Custom styles for the Solutions Hero section */
+.solutions-hero {
+    /* Retaining the existing hero background properties */
+    height: 350px; /* Slightly shorter than the original 400px, as it's not the main landing page hero */
+    background-image: url('placeholder-solutions-bg.jpg'); /* Use a specific image for the solutions page */
+    background-color: var(--ait-dark-blue); /* A solid color fallback */
+    
+    /* Center the content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Service Cards Wrapper (Used to position the cards) */
+.services-cards-wrapper {
+    background-color: var(--background-light); /* Light gray background to separate from main content */
+    padding-bottom: 50px;
+}
+.solutions-list-section {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.solutions-list-section h2 {
+    text-align: center;
+    color: var(--ait-dark-blue);
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.solution-item {
+    display: flex;
+    align-items: flex-start; /* Align image/text to the top */
+    border-top: 1px solid #ddd;
+    padding: 40px 0;
+    gap: 30px;
+}
+
+.solution-image {
+    flex-shrink: 0; /* Prevents the image container from shrinking */
+    width: 100px; /* Fixed width for the image/icon area */
+    height: 100px;
+    background-color: #eee; /* Placeholder background */
+    border-radius: 5px;
+    /* In a real site, you would use <img> tags here */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #555;
+    /* Remove this placeholder background when using actual images */
+    background-image: url('placeholder-solution-icon.png'); 
+    background-size: cover;
+}
+
+.solution-text {
+    flex-grow: 1;
+}
+
+.solution-text h3 {
+    color: var(--text-color-dark);
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.solution-text p {
+    color: var(--text-color-dark);
+    line-height: 1.6;
+}
+
+.solution-text a {
+    color: var(--ait-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Compatibility Icons */
+.compatibility-icons {
+    flex-shrink: 0;
+    width: 100px; /* Space for the icons */
+    text-align: right;
+    padding-top: 5px;
+}
+
+.compatibility-icons i {
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.browser-icon {
+    color: #4285F4; /* Google Chrome Blue */
+}
+
+.os-icon {
+    color: #0078D4; /* Windows Blue */
+}
+
+.android-color {
+    color: #3DDC84; /* Android Green */
+}
+
+
