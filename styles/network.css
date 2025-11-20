@@ -58,6 +58,36 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
     transform: rotate(180deg) translate(0px, -5px);
 }
+/* Container styling */
+.logo {
+    display: flex;               /* align items horizontally */
+    align-items: center;         /* vertically center the logo and text */
+    gap: 10px;                   /* space between image and text */
+}
+
+/* Logo image styling */
+.logo-img {
+    height: 50px;                /* adjust as needed */
+    width: auto;                 /* keep proportions */
+}
+
+/* Logo text styling */
+.logo-text {
+    font-size: 1.5rem;           /* adjust size */
+    font-weight: bold;           
+    color: #333;                 /* text color */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .logo-img {
+        height: 35px;            /* smaller logo on small screens */
+    }
+
+    .logo-text {
+        font-size: 1.2rem;       /* smaller text on small screens */
+    }
+}
 
 .main-nav ul {
     list-style: none;
@@ -85,17 +115,20 @@ body {
 /* Base Hero for Homepage */
 .hero-section {
     position: relative;
-    height: 400px;
-    background-color: black;
-    background-image: url('placeholder-laptop-bg.jpg');
+    height: 400px; /* adjust height as needed */
+    background-image: url('../images/godiya.PNG'); /* make sure path is correct */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     padding: 50px;
-    z-index: 1;
+    color: #fff; /* text color */
+    overflow: hidden;
 }
 
+/* Dark overlay using ::before */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -103,9 +136,33 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5); /* dark overlay with 50% opacity */
+    z-index: 0; /* behind content */
 }
+
+/* Hero content on top of overlay */
+.hero-content {
+    position: relative;
+    z-index: 1; /* make sure content is above overlay */
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 300px;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
 
 .more-about-us-btn {
     background-color: var(--ait-orange);
