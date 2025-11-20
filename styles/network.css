@@ -208,6 +208,95 @@ body {
     margin-bottom: 30px;
 }
 
+/* HERO BACKGROUND WITH OVERLAY */
+.contact-hero {
+    position: relative;
+    background-image: url('images/your-hero-image.jpg'); /* CHANGE IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DARK OVERLAY */
+.contact-hero .contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+}
+
+/* CONTACT FORM CONTAINER */
+.contact-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* HEADING */
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* FORM ELEMENTS */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* BUTTON */
+.contact-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #A3C938; /* your green color */
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #8DBA30;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .contact-container {
+        padding: 20px;
+    }
+}
 
 /* =========================================
    4. SERVICE CARDS
