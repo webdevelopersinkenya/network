@@ -179,7 +179,9 @@ body {
 .more-about-us-btn:hover {
     background-color:#1a4270;
 }
-
+h1{
+    text-align: center;
+}
 /* Solutions Page Hero Override */
 .solutions-hero {
     height: 350px;
