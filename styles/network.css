@@ -165,7 +165,7 @@ body {
 
 
 .more-about-us-btn {
-    background-color: var(--ait-orange);
+    background-color:#A3C938;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -177,7 +177,7 @@ body {
 }
 
 .more-about-us-btn:hover {
-    background-color: #e68a00;
+    background-color:#1a4270;
 }
 
 /* Solutions Page Hero Override */
@@ -233,7 +233,7 @@ body {
     border-top: 5px solid var(--ait-dark-blue);
     width: 30%;
     min-height: 300px;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
@@ -266,12 +266,13 @@ body {
 
 .card h3, .card p, .icon-container {
     padding: 0 25px;
+    
 }
 
 .card h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: black;
+    color: Orange;
     font-weight: 700;
 }
 
@@ -286,7 +287,8 @@ body {
 .learn-more-btn {
     display: block;
     width: 100%;
-    background-color: var(--ait-blue);
+    background-color:#A3C938;
+;
     color: white;
     text-align: center;
     padding: 15px 0;
